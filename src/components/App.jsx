@@ -1,16 +1,24 @@
+import { Profile } from './Profile/Profile';
+import upcomingUser from '../user.json';
 export const App = () => {
   return (
     <div
       style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
+        width: 1200,
+        padding: 15,
+        margin:'0 auto'
+        
       }}
     >
-      React homework template
+      <Profile
+        username={upcomingUser.username}
+        tag={upcomingUser.tag}
+        location={upcomingUser.location}
+        avatar={upcomingUser.avatar}
+        followers={upcomingUser.stats.followers}
+        views={upcomingUser.stats.views}
+        likes={upcomingUser.stats.likes}
+      />
     </div>
   );
 };
