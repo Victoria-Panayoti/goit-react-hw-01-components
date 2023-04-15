@@ -17,6 +17,7 @@ export const Personal = styled.div`
 export const Avatar = styled.img`
   width: 200px;
   border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 0px 8px -2px;
   margine-bottom: 40px;
 `;
 export const UserName = styled.p`
