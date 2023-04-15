@@ -6,17 +6,12 @@ import { FriendList } from './FriendsList/FriendList';
 import friends from '../friends.json';
 import { TransactionHistory } from './TransactionHistory/TransactionHistory';
 import transactions from '../transactions.json';
+import { GlobalStyle } from './GlobalStyle';
+import { Layout } from './Layout/Layout';
 
 export const App = () => {
   return (
-    <div
-      style={{
-        width: 1200,
-        padding: 15,
-        margin:'0 auto'
-        
-      }}
-    >
+    <Layout>
       <Profile
         username={upcomingUser.username}
         tag={upcomingUser.tag}
@@ -26,9 +21,10 @@ export const App = () => {
         views={upcomingUser.stats.views}
         likes={upcomingUser.stats.likes}
       />
-      <Statistics title={data.title} stats={data} />
+      <Statistics title='Upload stats' stats={data} />
       <FriendList friends={friends} />
-      <TransactionHistory items={transactions}/>
-    </div>
+      <TransactionHistory items={transactions} />
+      <GlobalStyle />
+    </Layout>
   );
-};  
+}; 

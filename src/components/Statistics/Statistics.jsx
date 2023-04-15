@@ -1,26 +1,32 @@
 import PropTypes from 'prop-types';
-import css from './Statistics.module.css';
-
-export const Statistics = ({ title, stats } ) => {
+import {
+  StatisticsBox,
+  StatisticTitle,
+  StatItem,
+  StatList,
+} from './Statistics.styled';
+export const Statistics = ({ title, stats }) => {
   return (
-    <section className={css.statistics}>
-      <h2 className="title">{title}</h2>
-      <ul className={css.statlist}>
+    <StatisticsBox>
+      {title && <StatisticTitle>{title}</StatisticTitle>}
+      <StatList>
         {stats.map(stat => (
-          <li className={css.item} key={stat.id}>
-            <span className={css.label}>{stat.label}</span>
-            <span className={css.percentage}>{stat.percentage}%</span>
-          </li>
+          <StatItem key={stat.id} color={stat.id}>
+            <span>{stat.label}</span>
+            <span>{stat.percentage}%</span>
+          </StatItem>
         ))}
-      </ul>
-    </section>
+      </StatList>
+    </StatisticsBox>
   );
 };
 Statistics.propTypes = {
-    title: PropTypes.string,
-    stats:PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
-        percentage: PropTypes.number.isRequired
-    })).isRequired
-}
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
